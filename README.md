@@ -1,75 +1,45 @@
-# React + TypeScript + Vite
+変数とは
+・一言でいうと？
+値に名前を付け、後で取り出せるように保存しておく箱のこと
+・なぜ必要なのか
+同じデータを何度も書く手間を省くため
+わかりやすい名前をつけることで、一目で意味を理解できるようになる。結果コードの読みやすさにつながる
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+関数とは
+・一言でいうと
+処理に名前をつけ、いつでも使いまわせるようにした仕組みのこと
+・なぜ必要なのか
+同じ処理を何度も書くのを防ぐため。
+1か所にまとめることで可読性を良くできる。
+処理を変更したくなっても、その関数の中身だけ直せば済むため、バグが減りメンテナンスが楽になる
 
-Currently, two official plugins are available:
+MVCの仕組みについて
+・一言でいうと
+M(model：データ担当)、V(view：描画担当)、C(controller：仲介、司令塔担当)と3つの役割に分ける設計図のこと
+・なぜ必要なのか
+役割を分担することで、コードがきれいに整理され、開発や修正がスムーズになる
+エラーが起きた際にどこでエラーが起きたのかわかりやすく、見た目を変えたいときはviewのみをいじればよかったり、DBを触ることがなくなるので、DBを壊すリスクが減る
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+・railsで実際に使うと
+ユーザーが記事をみたいとリクエスト＝＞controllerが記事のデータを要求＝＞modelがデータベースから持ってきたデータをviewに組み立てて画面を作る。最後にユーザーに戻す
 
-## React Compiler
+・繰り返し処理each文とwhile文を説明してください
+どちらも繰り返し処理を実行する構文であるが、繰り返す終わりの決め方が違う
+eachは配列などデータの塊を、要素の数だけ処理する
+whileは条件がtrueの間ずっと処理をし続ける
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+railsではデータベースといったデータの塊があるので、each文を基本に使う。データの数だけ処理したら自動で止まるためエラーやバグの心配が薄い
 
-## Expanding the ESLint configuration
+users = ["佐藤","鈴木","高橋"]
+puts "--- each文の実行 ---"
+users.each do |user|
+ puts "#{user}さんにメールを送信しました"
+#データの数だけ処理して自動で終了する
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+puts "--- while文の実行 ---"
+counter = 0
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
-```
+while counter < 3
+ puts = "現在のカウントは#{counter}です"
+ counter += 1    #ここ忘れると無限ループする
+end
