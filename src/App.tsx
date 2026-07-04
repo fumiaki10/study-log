@@ -5,20 +5,33 @@ function App() {
   const [count, setCount] = useState(0)
   const [pressCount, setPressCount] = useState(0)
 
+  const [iconCounter, setIconCounter] = useState(0)
+
   const handlePlus = () => {
-    setCount(count + 100)
-    setPressCount(pressCount + 1)
+    const nextPressCount = pressCount + 1
+
+    let nextCount = count + 100
+
+    if (nextPressCount % 10 === 0) {
+      nextCount += 200
+      setIconCounter(iconCounter + 1)
+    }
+    setCount(nextCount)
+    setPressCount(nextPressCount)
   }
 
   const handleMinus = () => {
-    const nextCount = count - 100
-    if (nextCount < 0) {
-      setCount(0)
-    } else {
-      setCount(nextCount)
-    }
+    const nextPressCount = pressCount + 1
+    let nextCount = count - 100
 
-    setPressCount(pressCount + 1)
+    if (nextCount < 0) {
+      nextCount = 0
+    }
+    if (nextPressCount % 10 === 0) {
+      setIconCounter(iconCounter + 1)
+    }
+    setCount(nextCount)
+    setPressCount(nextPressCount)
   }
 
   return (
@@ -43,6 +56,12 @@ function App() {
         </button>
         <div className="counter">{count}</div>
         <div className="pressCount">{pressCount}</div>
+      </div>
+
+      <div className="icon">
+        {Array.from({ length: iconCounter }).map((_, index) => (
+          <span key={index}>★</span>
+        ))}
       </div>
 
     </div>
