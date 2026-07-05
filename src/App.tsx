@@ -1,49 +1,36 @@
 import { useState } from 'react'
 import './App.css'
+import CountUp from './components/CountUp'
+import TextChange from './components/TextChange'
 
 function App() {
-  const [count, setCount] = useState(0)
-  const [pressCount, setPressCount] = useState(0)
 
 
-  const handlePlus = () => {
-    const nextPressCount = pressCount + 1
-    const addPoint = nextPressCount % 10 === 0 ? 300 : 100
-    setCount(prev => prev + addPoint)
-    setPressCount(nextPressCount)
-  }
+  const [message, setMessage] = useState("まだ押されていません");
 
-
-
-
-  const handleMinus = () => {
-    setCount(prev => Math.max(prev - 100, 0))
-    setPressCount(prev => prev + 1)
-  }
-
-  const iconCount = Math.floor(pressCount / 10)
+  const handleUpdate = (childData) => {
+    setMessage(childData);
+  };
 
   return (
     <div>
-      <h2>カウントを上げていくボタン</h2>
-      <div className="button-counter">
-        <button className="plus-button" onClick={handlePlus}>
-          +ボタン
-        </button>
-        <button className="minus-button" onClick={handleMinus}>
-          -ボタン
-        </button>
-        <div className="counter">{count}</div>
-        <div className="pressCount">{pressCount}</div>
-      </div>
+      <h1>React学習用</h1>
+      <CountUp />
 
-      <div className="icon">
-        {Array.from({ length: iconCount }).map((_, index) => (
-          <span key={index}>★</span>
-        ))}
-      </div>
+      <h1>親の画面: {message}</h1>
+      <TextChange
+        text="Aボタン"
+        SendText="Aボタンから来ました"
+        onSendMessage={handleUpdate} />
+
+      <TextChange
+        text="Bボタン"
+        SendText="Bボタンから来ました"
+        onSendMessage={handleUpdate} />
+
     </div>
-  )
+
+  );
 }
 
 export default App
