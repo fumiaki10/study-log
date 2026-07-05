@@ -8,7 +8,7 @@ function App() {
 
   const [message, setMessage] = useState("まだ押されていません");
 
-  const handleUpdate = (childData) => {
+  const handleUpdate = (childData: string) => {
     setMessage(childData);
   };
 
