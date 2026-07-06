@@ -1,9 +1,18 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import '../assets/Timer.css'
 
 function Timer() {
 
   const [countTimer, setCountTimer] = useState(0)
+
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      setCountTimer((prevCount) => prevCount + 1);
+    }, 1000);
+
+    return () => clearInterval(intervalId);
+  }, [])
+
   return (
     <>
       <div className="timer-content">
@@ -22,6 +31,7 @@ function Timer() {
             <button className='timer-button' onClick={() => setCountTimer(countTimer - 3600)}>-1時間</button>
           </div>
         </div>
+
       </div>
     </>
   )
