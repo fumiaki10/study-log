@@ -1,0 +1,38 @@
+.timer-content {
+  background-color: gray;
+  height: 500px;
+}
+
+.main-count {
+  display: flex;
+  justify-content: center;
+}
+
+.numbers {
+  background-color: azure;
+  height: 200px;
+  width: 100%;
+}
+
+
+.count-timer {
+  width: 150px;
+  height: 150px;
+  font-size: 70px;
+  display: flex;
+  justify-content: center;
+}
+
+.timers-button {
+  display: flex;
+  align-items: center;
+}
+
+
+.timer-button {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  background-color: rgb(197, 197, 197);
+  justify-content: center;
+}
