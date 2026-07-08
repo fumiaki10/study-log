@@ -25,12 +25,19 @@ function Timer() {
 
   }, [isActive])
 
+  const hours = Math.floor(countTimer / 3600)
+  const minutes = Math.floor((countTimer % 3600) / 60)
+  const remainderSeconds = countTimer % 60
+
   return (
     <>
       <div className="timer-content">
 
         <div className="main-count">
-          <div className="count-timer">{countTimer}秒</div>
+          <div className="count-timer">{String(remainderSeconds).padStart(2, '0')}秒</div>
+          <div className="count-timer">{String(minutes).padStart(2, '0')}分</div>
+          <div className="count-timer">{String(hours).padStart(2, '0')}時間</div>
+
         </div>
 
         <div className="numbers">
