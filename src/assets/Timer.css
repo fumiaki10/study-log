@@ -5,7 +5,8 @@
 
 .main-count {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
+  flex-direction: row-reverse;
 }
 
 .numbers {
@@ -16,16 +17,16 @@
 
 
 .count-timer {
-  width: 150px;
   height: 150px;
   font-size: 70px;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
 }
 
 .timers-button {
   display: flex;
   align-items: center;
+  flex-direction: row-reverse;
 }
 
 
