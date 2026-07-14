@@ -1,0 +1,22 @@
+li.special,
+span.special {
+  color: orange;
+  font-weight: bold;
+}
+
+
+
+a:hover {
+  color: blue;
+}
+
+
+
+
+a:link {
+  color: red;
+}
+
+a:visited {
+  color: green;
+}
