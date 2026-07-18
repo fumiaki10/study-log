@@ -1,3 +1,5 @@
+import { flexBtnLayout } from "./layoutData.js"
+
 function FlexButtons() {
   const flexElement = document.getElementById("buttons")
 
@@ -9,9 +11,15 @@ function FlexButtons() {
   function createButton() {
     let itemsHtml = '';
 
-    for (let i = 1; i <= 5; i++) {
-      itemsHtml += `<input type="radio" name="button" data-class="btn-primary${i}">`;
-    }
+    flexBtnLayout.forEach(function (value) {
+      itemsHtml +=
+        `<input type="radio" name="button" data-class=${value.name}>
+        <label>${value.label}</label>`;
+    });
+
+    // for (let i = 1; i <= flexBtnLayout.length; i++) {
+    //   itemsHtml += `<input type="radio" name="button" data-class=flexBtnLayout>`;
+    // }
 
     flexElement.innerHTML = itemsHtml;
   }

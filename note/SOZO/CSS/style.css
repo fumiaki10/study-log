@@ -38,31 +38,31 @@ a:visited {
   margin: 16px;
 }
 
-.btn-primary1 {
+.flex {
   display: flex;
 }
 
-.btn-primary2 {
+.flex-diRow {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
 }
 
-.btn-primary3 {
+.flex-diColumn-wrap-acCenter {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
   align-content: center;
 }
 
-.btn-primary4 {
+.flex-diRow-wrap-jcCenter {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
 }
 
-.btn-primary5 {
+.flex-diRow-wrap-jcCenter-aiCenter {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
