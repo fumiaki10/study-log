@@ -3,6 +3,7 @@ import './App.css'
 import CountUp from './components/CountUp'
 import TextChange from './components/TextChange'
 import Timer from './components/Timer'
+import GridItem from './components/GridItem'
 
 function App() {
 
@@ -19,7 +20,7 @@ function App() {
 
   return (
     <div>
-      <div>
+      {/* <div>
         <h1>React学習用</h1>
         <CountUp />
 
@@ -37,8 +38,10 @@ function App() {
 
       <div>
         <Timer />
+      </div> */}
+      <div>
+        <GridItem />
       </div>
-
 
     </div>
   );
